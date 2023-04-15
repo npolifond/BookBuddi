@@ -1,0 +1,95 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family:headingfont;
+    src: url(fonts/norwester.otf);
+    font-weight: 100;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color:rgba(250, 249, 246, 1);
+    color:rgba(60, 136, 126, 1);
+    margin: 20px;
+    margin-top: 0px;
+    /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);*/
+  }
+  
+  .logo {
+    margin-left: 20px;
+  }
+  
+  .logo img {
+    height: 60px;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    margin: 0;
+  }
+  
+  nav a {
+    display: block;
+    padding: 15px;
+    color: rgba(60, 136, 126, 1);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color:rgba(60, 136, 126, 1);;
+    opacity: 40%;
+  }
+  
+  nav ul {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav li:last-child {
+    margin-left: auto;
+  }
+  
+body{
+    padding-top:120px;
+    background-color: rgba(250, 249, 246, 1);
+    margin: 20px;
+    padding-left: 30px;
+}
+fieldset{
+    padding:20px;
+    width: 850px;
+    border:0;
+    background-color: aliceblue;
+    margin:auto;
+
+
+}
+.searchBar{
+    background-image: url(images/pexels-taryn-elliott-4440122.jpg);
+    padding: 20px;
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-content: center;
+    align-self: center;
+
+}
+
