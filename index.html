@@ -7,13 +7,11 @@
         </title>
        
     </head>
-
     <body>
-     
         <header>
 
             <script src=jquery-3.6.4.min.js ></script>
-            <script src="InMain.js"></script>
+            <script src="main.js"></script>
             <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
             <script type="text/javascript">
                 google.books.load();
@@ -37,31 +35,17 @@
 
         <main>
         <section class="searchBar">
-            <fieldset>
+            <form id="searchform">
                 <label for="titleName"> </label><br>
-                <input type="text" id="titleName" name="titleName" placeholder="Search Title, ISBN, Author or Catergory"><br>
+                <input type="text" id="titleName" name="titleName" placeholder="Search Title, ISBN,  or Author "><br>
                 <label for="opTitle">Title</label>
-                <input type="radio" id="opTitle" name="search" checked>
+                <input type="radio" id="opTitle" value="title" name="search" checked>
                 <label for="opISBN">ISBN10</label>
-                <input type="radio" id="opISBN" name="search"><br>
+                <input type="radio" id="opISBN" value="ISBN10" name="search"><br>
                 <label for="opAuthour">Author</label>
-                <input type="radio" id="opAuthour" name="search">
-                <label for="opCategory">Category</label>
-                <input type="radio" id="opCategory" name="search">
-                <select name="opCategory" id="opCategory">
-                    <option value="empty"></option>
-                    <option value="thriller">Thriller</option>
-                    <option value="romance">Romance</option>
-                    <option value="historical">Historical</option>
-                    <option value="HowTo"> How To</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="Scifi">Sci-Fi</option>
-                    <option value="Biogrpahy">Biography</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="NonFic">Non-Fiction</option>
-                </select><br>
-                <button type="submit" id="Searchsubmit" name="Searchsubmit" onClick="search()">Search</button><br>
-            </fieldset>
+                <input type="radio" id="opAuthour" value="author"name="search">
+                <button type="submit" id="Searchsubmit" name="Searchsubmit">Search</button><br>
+            </form>
         </section>
         <section>
             <img src="images/bblogo%E2%80%8E.jpg" alt="Book Buddi Logo" width="100" id="logoimg"> 
