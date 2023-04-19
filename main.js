@@ -15,21 +15,22 @@ $(document).ready(function() {
       switch (selection) {
         case 'ISBN10':
           if (validIsbn(searchTerm)) {
-            $.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`, function(response) {
-              for(i=0;i<response.items.length;i++){
-
-                title=$('<h5 class="tile">'+response.items[i].volumeInfo.title+ '</h5>');
-                author=$('<h5 class="author">'+response.items[i].volumeInfo.authors+ '</h5>');
-                description=$('<p class="desc">'+response.items[i].volumeInfo.description+ '</p>');
-                img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+response.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
-                purchase=$('<p class="img">'+response.items[i].saleInfo.buyLink+ '</p>');
-               // imag.attr('src')
-               //https://codepen.io/Kicky/pen/ZxvvqE
-               
-              }
-              console.log(response);
-            }).fail(function() {
-              alert('Error: Could not retrieve book information.');
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`)
+              .then(response => response.json())
+              .then(data => {
+                for(i=0;i<data.items.length;i++){
+                  title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
+                  author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
+                  description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
+                  img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
+                  purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
+                         // imag.attr('src')
+                  //https://codepen.io/Kicky/pen/ZxvvqE
+                }
+                console.log(data);
+              })
+              .catch(error => {
+                alert('Error: Could not retrieve book information.');
             });
           } else {
             alert("ISBN10 entered incorrectly");
@@ -38,45 +39,39 @@ $(document).ready(function() {
 
         case 'title':
           if (validIsbn(searchTerm)) {
-            alert("ISBN10 has been entered. Please enter correct input.");
-          } else {
-            $.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`, function(response) {
-              for(i=0;i<response.items.length;i++){
-
-                title=$('<h5 class="tile">'+response.items[i].volumeInfo.title+ '</h5>');
-                author=$('<h5 class="author">'+response.items[i].volumeInfo.authors+ '</h5>');
-                description=$('<p class="desc">'+response.items[i].volumeInfo.description+ '</p>');
-                img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+response.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
-                purchase=$('<p class="img">'+response.items[i].saleInfo.buyLink+ '</p>');
-               // imag.attr('src')
-               //https://codepen.io/Kicky/pen/ZxvvqE
-               
-              }
-              console.log(response);
-            }).fail(function() {
-              alert('Error: Could not retrieve book information.');
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`)
+              .then(response => response.json())
+              .then(data => {
+                for(i=0;i<data.items.length;i++){
+                  title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
+                  author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
+                  description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
+                  img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
+                  purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
+                }
+                console.log(data);
+              })
+              .catch(error => {
+                alert('Error: Could not retrieve book information.');
             });
           }
           break;
 
         case 'author':
           if (validIsbn(searchTerm)) {
-            alert("ISBN10 has been entered. Please enter correct input.");
-          } else {
-            $.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`, function(response) {
-              for(i=0;i<response.items.length;i++){
-
-                title=$('<h5 class="tile">'+response.items[i].volumeInfo.title+ '</h5>');
-                author=$('<h5 class="author">'+response.items[i].volumeInfo.authors+ '</h5>');
-                description=$('<p class="desc">'+response.items[i].volumeInfo.description+ '</p>');
-                img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+response.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
-                purchase=$('<p class="img">'+response.items[i].saleInfo.buyLink+ '</p>');
-               // imag.attr('src')
-               //https://codepen.io/Kicky/pen/ZxvvqE
-
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`)
+            .then(response => response.json())
+            .then(data => {
+              for(i=0;i<data.items.length;i++){
+                title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
+                author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
+                description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
+                img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
+                purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
               }
-              console.log(response);
-            }).fail(function() {
+              console.log(data);
+            })
+            .catch(error => {
               alert('Error: Could not retrieve book information.');
             });
           }
@@ -93,9 +88,23 @@ $(document).ready(function() {
 
 /* functions for buttons */
 $(document).ready(function() {
+  $("button").click(function(){
+    var catalog = $(this).attr("name");
+    
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${catalog}`)
+    .then(response => response.json())
+    .then(data => {
+      for(i=0;i<data.items.length;i++){
+        title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
+        author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
+        description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
+        img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
+        purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
+      }
+      console.log(data);
+    })
 
-
-
+  });
 
 });
 

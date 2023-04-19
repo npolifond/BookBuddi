@@ -8,6 +8,14 @@
     src: url(fonts/norwester.otf);
     font-weight: 100;
 }
+@font-face {
+  font-family: captions;
+  src: url(fonts/Kollektif.ttf);
+}
+@font-face {
+  font-family: text;
+  src: url(fonts/Montserrat-VariableFont_wght.ttf);
+}
 header {
     position: fixed;
     top: 0;

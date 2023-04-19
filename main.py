@@ -203,18 +203,18 @@ def removeReview(BookTitle,id):
 def updateReview(BookTitle,id):
     try:
         id = request.form['userId']
-        username = request.form['username']
-        email = request.form['email']
-        phone = request.form['phone']
+        BookTitle = request.form['booktitle']
+        Desciption = request.form['email']
+        Rating = request.form['rating']
 
         #MySQL connection
         conn = mysql.connect()
         cur = conn.cursor(pymysql.cursors.DictCursor)
 
-        if username and email and phone:
+        if BookTitle and Desciption and Rating and id:
             
-            sql = "UPDATE review_details SET username = %s,email = %s,phone = %s WHERE id = %s;"
-            data = (username, email, phone, id)
+            sql = "UPDATE review_details SET Desciption,Rating WHERE BookTitle = %s;"
+            data = (BookTitle, Desciption, Rating, id)
 
             cur.execute(sql, data)
             conn.commit()
@@ -261,7 +261,7 @@ def user():
         conn = mysql.connect()
         cur = conn.cursor(pymysql.cursors.DictCursor) #The function is actually cursor(), not cur()
         
-        cur.execute("SELECT * FROM users;")
+        cur.execute("SELECT * FROM account;")
         rows = cur.fetchall()
         print("Records returned: "+str(len(rows)))
 
@@ -299,7 +299,7 @@ def view_user(id):
         conn = mysql.connect()
         cur = conn.cursor(pymysql.cursors.DictCursor) #The function is actually cursor(), not cur()
         
-        cur.execute("SELECT * FROM users WHERE username = %s;",username)
+        cur.execute("SELECT * FROM account WHERE username = %s;",username)
         rows = cur.fetchall()
         print("Records returned: "+str(len(rows)))
 
@@ -346,7 +346,7 @@ def add_user():
 
         if firstname and lastname and email and username and  password:
 
-            sql = "INSERT INTO users (firstname, lastname, email, username, password) VALUES(%s, %s, %s, %s, %s)"
+            sql = "INSERT INTO account (firstname, lastname, email, username, password) VALUES(%s, %s, %s, %s, %s)"
             data = (firstname, lastname, email, username, password)
 
             cur.execute(sql, data)
