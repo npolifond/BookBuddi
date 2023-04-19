@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign up</title>
+    <style>
+        body {
+            background-color: #FAF9F6;
+        }
+
+        h1 {
+            color: #313639;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        footer {
+            background-color: gray;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+        }
+        submit {
+            padding: 5px 15px;
+            background: #ccc;
+            border: 0 none;
+            cursor: pointer;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="jquery-3.6.4.min.js"></script>
+    <script>
+        var message = "";
+        var areFieldsCorrect = true;
+        function validateName(namev) {
+            // check for empty field
+            if (namev.trim() == "") {
+                areFieldsCorrect = false;
+                message += "First Name/Last Name is empty \n";
+            }
+
+
+
+
+        }
+        function validatemail(emailv) {
+            // check for empty field
+            if (emailv.trim() == "") {
+                areFieldsCorrect = false;
+                message += "Email is empty \n";
+            }
+
+
+
+
+        }
+        function validateuser(userv) {
+            // check for empty field
+            if (userv.trim() == "") {
+                areFieldsCorrect = false;
+                message += "Username is empty \n";
+            }
+
+
+        }
+        function validatepass(passv) {
+            // check for empty field
+            if (passv.trim() == "") {
+                areFieldsCorrect = false;
+                message += "Password  is empty \n";
+            }
+
+
+
+        }
+        function validate() {
+            // get all information from the form
+            var firstname = document.getElementById('fname').value;
+            var lastname = document.getElementById('lname').value;
+            var username = document.getElementById('uname').value;
+            var passworrd = document.getElementById('pass').value;
+            var email = document.getElementById('mail').value;
+
+            // run all information through validators
+            validateName(firstname);
+            validateName(lastname);
+            validateuser(username);
+            validatepass(passworrd);
+            validatemail(email);
+
+            if (!areFieldsCorrect) {
+                alert(message);
+                location.reload();
+ 
+            }
+            else {
+                alert("Account Created!");
+                // sends  user info to database 
+                var formData ="&firstname=" + firstname + "&lastName=" + lastname + "&email=" + email + "username=" + username + "&passworrd=" + passworrd;
+                console.log(formData);
+                $.ajax
+                    ({
+                        url: "http://localhost:5000/users/create",
+                        type: "POST",
+                        data: formData,
+                        success: function (data) {
+                            console.log(data);
+                            alert(data['message']);
+                            // clears feilds      
+                            $("#username").val("");
+                            $("#email").val("");
+                            $("#password").val("");
+                            $("#firstname").val("");
+                            $("#lastname").val("");
+                        },
+                        error: function (jqXHR, textStatus, errorThrow) {
+                            alert("Error: " + textStatus + " " + errorThrow);
+
+                        }
+
+
+
+
+
+
+                    })
+            }
+            message = "";
+            areFieldsCorrect = true;
+
+
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Book Buddi</h1> <br><br>
+    <h2> Sign up</h2>
+
+    <form method = "POST" action ="#'>
+        <label for="fname">Firstname:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Lastname:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="mail">E-mail:</label><br>
+        <input type="text" id="mail" name="mail"><br>
+        <label for="uname">Username:</label><br>
+        <input type="text" id="uname" name="uname"><br>
+        <label for="pass">Password:</label><br>
+        <input type="text" id="pass" name="pass"><br><br>
+        <input type="submit" value="Sign up" onclick="validate()">
+    </form>
+
+    <p></p>
+    <footer>
+        <p><a href="https://www.figma.com/file/1JJGJQock3fegljpaJkAWu/Book-Budi?node-id=0-1">Credits</a></p>
+        <br>
+        <br>
+    </footer>
+
+</body>
+
+</html>
+
