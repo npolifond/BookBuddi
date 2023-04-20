@@ -15,7 +15,7 @@ $(document).ready(function() {
       switch (selection) {
         case 'ISBN10':
           if (validIsbn(searchTerm)) {
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`)
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${searchTerm}`)
               .then(response => response.json())
               .then(data => {
                 for(i=0;i<data.items.length;i++){
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
         case 'title':
           if (validIsbn(searchTerm)) {
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`)
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${searchTerm}`)
               .then(response => response.json())
               .then(data => {
                 for(i=0;i<data.items.length;i++){
@@ -59,7 +59,7 @@ $(document).ready(function() {
 
         case 'author':
           if (validIsbn(searchTerm)) {
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`)
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${searchTerm}`)
             .then(response => response.json())
             .then(data => {
               for(i=0;i<data.items.length;i++){
@@ -90,7 +90,6 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("button").click(function(){
     var catalog = $(this).attr("name");
-    
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${catalog}`)
     .then(response => response.json())
     .then(data => {
