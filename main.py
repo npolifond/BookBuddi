@@ -2,7 +2,7 @@ import pymysql
 from app import app
 from db_config import mysql
 from flask import jsonify
-from flask import flash, request,session, redirect, url_for
+from flask import flash,request,session, redirect, url_for
 
 
 @app.route('/results', methods=['Get'])
@@ -12,15 +12,16 @@ def getBooks():
         message={
         'status': '400',
         'message': 'Search term is required.'
-            }
+        }
         resp=jsonify(message)
         resp.status_code=500
         return resp
-    
+
     url=f'https://www.googleapis.com/books/v1/volumes?q={searchTerm}'
     resp=request.get(url)
     results= resp.json()
     res= jsonify(results)
+    return res
 
     if resp.status_code !=200:
         message={
@@ -29,15 +30,15 @@ def getBooks():
         resp=jsonify(message)
         resp.status_code=500
         return resp
-return res
+        
 
 
 #Return users Reviews from review tables when people search for a books. (post the book reviews)
-@app.route('catalog/results/<str:title>', methods=['POST'])
+@app.route('/catalog/results/<string:title>', methods=['GET'])
 def reviewsByTitle(title):
     try:
         conn=mysql.connect();
-        curr=conn.cur(pymysql.cursors.DictCursors)
+        curr = conn.cur(pymysql.cursors.DictCursors)
 
         cur.execute("SELECT * FROM review_details WHERE BookTitle = %s;",title)
         rows = cur.fetchall()
@@ -155,7 +156,7 @@ def SubmitReview(id):
 
 
 #Delete users reviews
-@app.route('/user/delete/<str:title>/<int:id>')
+@app.route('/user/delete/<string:title>/<int:id>')
 def removeReview(BookTitle,id):
     try:
         #MySQL connection
