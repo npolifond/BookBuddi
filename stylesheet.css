@@ -139,8 +139,13 @@ form{
 h2{
   font-family: captions;
 }
-button{
+#optnNon{
+  background:url(images/nonfic.jpg) ; 
+}
 
+.Booktypes{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .searchBar{
