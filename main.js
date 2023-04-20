@@ -22,10 +22,15 @@ $(document).ready(function() {
                   title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
                   author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
                   description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
-                  img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
+                  img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
                   purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
-                         // imag.attr('src')
-                  //https://codepen.io/Kicky/pen/ZxvvqE
+                  
+                  title.appendTo("#results");
+                  author.appendTo("#results");
+                  description.appendTo("#results");
+                  img.appendTo("#results");
+                  purchase.appendTo("#results");
+
                 }
                 console.log(data);
               })
@@ -38,16 +43,23 @@ $(document).ready(function() {
           break;
 
         case 'title':
-          if (validIsbn(searchTerm)) {
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${searchTerm}`)
+          if (searchTerm!=='') {
+            const encodedSearchTerm = encodeURIComponent(searchTerm);
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodedSearchTerm}`)
               .then(response => response.json())
               .then(data => {
                 for(i=0;i<data.items.length;i++){
                   title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
                   author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
                   description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
-                  img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
+                  img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
                   purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
+                  
+                  title.appendTo("#results");
+                  author.appendTo("#results");
+                  description.appendTo("#results");
+                  img.appendTo("#results");
+                  purchase.appendTo("#results");
                 }
                 console.log(data);
               })
@@ -58,16 +70,22 @@ $(document).ready(function() {
           break;
 
         case 'author':
-          if (validIsbn(searchTerm)) {
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${searchTerm}`)
+          if (searchTerm!=='') {
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor${searchTerm}`)
             .then(response => response.json())
             .then(data => {
               for(i=0;i<data.items.length;i++){
                 title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
                 author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
                 description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
-                img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
+                img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
                 purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
+                
+                title.appendTo("#results");
+                author.appendTo("#results");
+                description.appendTo("#results");
+                img.appendTo("#results");
+                purchase.appendTo("#results");
               }
               console.log(data);
             })
@@ -86,7 +104,7 @@ $(document).ready(function() {
   });
 });
 
-/* functions for buttons */
+
 $(document).ready(function() {
   $("button").click(function(){
     var catalog = $(this).attr("name");
@@ -99,6 +117,11 @@ $(document).ready(function() {
         description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
         img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
         purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
+        title.appendTo("#results");
+        author.appendTo("#results");
+        description.appendTo("#results");
+        img.appendTo("#results");
+        purchase.appendTo("#results");
       }
       console.log(data);
     })

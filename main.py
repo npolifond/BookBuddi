@@ -298,7 +298,7 @@ def view_user(id):
     try:
         #MySQL connection
         conn = mysql.connect()
-        cur = conn.cursor(pymysql.cursors.DictCursor) #The function is actually cursor(), not cur()
+        cur = conn.cursor(pymysql.cursors.DictCursor)
         
         cur.execute("SELECT * FROM account WHERE username = %s;",username)
         rows = cur.fetchall()
