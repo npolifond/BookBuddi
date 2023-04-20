@@ -347,8 +347,8 @@ def add_user():
 
         if firstname and lastname and email and username and  password:
 
-            sql = "INSERT INTO account (firstname, lastname, email, username, password) VALUES(%s, %s, %s, %s, %s)"
-            data = (firstname, lastname, email, username, password)
+            sql = "INSERT INTO account (firstname, lastname, username ,email, password) VALUES(%s, %s, %s, %s, %s)"
+            data = (firstname, lastname, username, email,password)
 
             cur.execute(sql, data)
             conn.commit()
