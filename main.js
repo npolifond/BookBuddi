@@ -19,8 +19,8 @@ $(document).ready(function() {
               .then(response => response.json())
               .then(data => {
                 for(i=0;i<data.items.length;i++){
-                  title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
-                  author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
+                  title=$('<h1 class="tile">'+data.items[i].volumeInfo.title+ '</h1>');
+                  author=$('<h3 class="author">'+data.items[i].volumeInfo.authors+ '</h3>');
                   description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
                   img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
                   purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
@@ -49,8 +49,8 @@ $(document).ready(function() {
               .then(response => response.json())
               .then(data => {
                 for(i=0;i<data.items.length;i++){
-                  title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
-                  author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
+                  title=$('<h1 class="tile">'+data.items[i].volumeInfo.title+ '</h1>');
+                  author=$('<h2 class="author">'+data.items[i].volumeInfo.authors+ '</h2>');
                   description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
                   img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
                   purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
@@ -75,8 +75,8 @@ $(document).ready(function() {
             .then(response => response.json())
             .then(data => {
               for(i=0;i<data.items.length;i++){
-                title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
-                author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
+                title=$('<h1 class="tile">'+data.items[i].volumeInfo.title+ '</h1>');
+                author=$('<h2 class="author">'+data.items[i].volumeInfo.authors+ '</h2>');
                 description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
                 img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
                 purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
