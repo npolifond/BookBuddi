@@ -12,7 +12,7 @@
         h1 {
             color: #313639;
             text-align: center;
-            
+
         }
  
         h2 {
@@ -108,11 +108,11 @@
             else {
                 alert("Account Created!");
                 // sends  user info to database 
-                var formData ="&firstname=" + firstname + "&lastName=" + lastname + "&email=" + email + "username=" + username + "&passworrd=" + passworrd;
+                var formData ="&firstname=" + firstname + "&lastName=" + lastname + "&email=" + email + "username=" + username + "&password=" + password;
                 console.log(formData);
                 $.ajax
                     ({
-                        url: "http://localhost:5000/users/create",
+                        url: "http://127.0.0.1:5000/users/create",
                         type: "POST",
                         data: formData,
                         success: function (data) {
