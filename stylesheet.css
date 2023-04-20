@@ -165,7 +165,24 @@ h2{
   margin-top: 60px;
 }
 
-#optNon{
-  background-image: url('C:\Users\Jadou1\Documents\GitHub\BookBuddi\images\nonfic.jpg');
-}
+
+  #optNon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #optNon img {
+    width: 200px;
+    height: 200px;
+  }
+
+
+<td>
+  <button name="searchBtn" id="optNon">
+    <img src="C:\Users\Jadou1\Documents\GitHub\BookBuddi\images\nonfic.jpg">
+    <span>Nonfiction</span>
+  </button>
+</td>
 
