@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link  rel="stylesheet" href="stylesheet.css"  type="text/css" /> 
+        <title>
+            Catalog
+        </title>
+    </head>
+    <body>
+        <header>
+            <script src=jquery-3.6.4.min.js ></script>
+            <script src="main.js"></script>
+            <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+            <script type="text/javascript">
+                google.books.load();
+              </script>
+        <div class="logo">
+            <img src="images/bblogo%E2%80%8E.jpg" alt="Book Buddi Logo" width="100" id="logoimg"> 
+        </div>
+        <h1>Catalog</h1> 
+        <nav class="navbar"> 
+            <ul>
+               <li><a href="index.html" onclick="index.html" id="Home"> Home</a></li> 
+               <li> <a href="catalog.html" onclick="catalog.html" id="catalog"> Catalog</a></li>
+               <li> <a href="catalog.html" onclick="catalog.html" id="catalog"> Account</a></li>
+            </ul> 
+        </nav>
+        </header>
+
+
+        <main>
+            <section class="searchBar">
+                <div class="inputBar">
+                <form id="searchform">
+                    <label for="titleName"> </label><br>
+                    <input type="text" class= "searchIn" id="titleName" name="titleName" placeholder="Search Title, ISBN,  or Author "><br>
+                    <label for="opTitle">Title</label>
+                    <input type="radio" id="opTitle" value="title" name="search" checked>
+                    <label for="opISBN">ISBN10</label>
+                    <input type="radio" id="opISBN" value="ISBN10" name="search">
+                    <label for="opAuthour">Author</label>
+                    <input type="radio" id="opAuthour" value="author"name="search">
+                    <button type="submit" id="Searchsubmit" name="Searchsubmit">Search</button>
+                </form>
+            </div>
+            </section>
+            
+        
+        <section class="Generes">
+            <table class="Booktypes">
+                <tr>
+                    <td> <button name="searchBtn" id="optNon> Nonfiction</button></td>
+                    <td> <button name="searchBtn" id="optRom> Romance</button></td>
+                    <td><button name="searchBtn" id="optSci> SCI-Fi</button></td>
+                </tr>
+                <tr>
+                    <td><button name="searchBtn" id="optSelf> Self Help</button></td>
+                    <td><button name="searchBtn" id="optHis> Historical</button></td>
+                    <td><button name="searchBtn" id="optAdv> Adventure</button></td>
+                </tr>
+                <tr>
+                    <td><button name="searchBtn" id="optBio Biogrpahy</button></td>
+                    <td><button name="searchBtn" id="optThrill> Thriller</button></td>
+                    <td><button name="searchBtn" id="optFic Fiction</button></td>
+                </tr>
+            </table>
+        </section>
+    </body>
+           
+   
+</html>
