@@ -8,13 +8,34 @@
     src: url(fonts/norwester.otf);
     font-weight: 100;
 }
+
 @font-face {
-  font-family: captions;
+  font-family:captions;
   src: url(fonts/Kollektif.ttf);
 }
 @font-face {
-  font-family: text;
+  font-family:text;
   src: url(fonts/Montserrat-VariableFont_wght.ttf);
+}
+ul{
+ font-family:captions ;
+}
+p{
+  font-size: x-large;
+  font-family: text;
+}
+.about{
+  background-color: rgba(60, 136, 126, 0.048) ;
+  
+  margin-top: 80px;
+}
+.aboutTitle{
+  font-family: headingfont;
+}
+
+
+h1{
+  font-family:headingfont;
 }
 header {
     position: fixed;
@@ -61,7 +82,7 @@ header {
   }
   
   nav a:hover {
-    background-color:rgba(60, 136, 126, 1);;
+    background-color:rgba(60, 136, 126, 0.021);;
     opacity: 40%;
   }
   
@@ -80,17 +101,50 @@ body{
     margin: 20px;
     padding-left: 30px;
 }
-fieldset{
+form{
     padding:20px;
-    width: 850px;
+    width: auto;
+    height: 270px;
     border:0;
-    background-color: aliceblue;
+    background-color: rgba(60, 136, 126, 1);
+    opacity: 95%;
     margin:auto;
-
+    font-family: captions;
 
 }
+.signup{
+  background-color: rgba(60, 136, 126, 0.048);
+
+}
+
+.inputBar{
+  border: 2px solid #181717;
+	overflow: auto;
+	border-radius: 5px;
+  align-self: center;
+  font-size: x-large;
+  
+  text-size-adjust:initial;
+}
+.inputBar input[type="text"]
+{
+  font-family:text;
+  font-size: x-large;
+	border: 0px;
+	width: 97%;
+	padding: 20px 20px;
+  margin-bottom: 40px;
+}
+
+h2{
+  font-family: captions;
+}
+button{
+
+}
+
 .searchBar{
-    background-image: url(images/pexels-taryn-elliott-4440122.jpg);
+    background-image: url(images/pexels-yaroslav-shuraev-6281049.jpg);
     padding: 20px;
     background-size: contain;
     background-size: cover;
@@ -98,6 +152,11 @@ fieldset{
     background-position: center;
     align-content: center;
     align-self: center;
+    width: auto;
 
+
+}
+.benefits{
+  margin-top: 60px;
 }
 
