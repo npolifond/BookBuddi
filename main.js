@@ -4,6 +4,7 @@ $(document).ready(function() {
   var img;
   var description;
   var purchase;
+  const tableBody = $("#results");
 
   $("#searchform").submit(function() {
     const searchTerm = $("#titleName").val();
@@ -19,17 +20,22 @@ $(document).ready(function() {
               .then(response => response.json())
               .then(data => {
                 for(i=0;i<data.items.length;i++){
-                  title=$('<h1 class="tile">'+data.items[i].volumeInfo.title+ '</h1>');
-                  author=$('<h3 class="author">'+data.items[i].volumeInfo.authors+ '</h3>');
-                  description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
-                  img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
-                  purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
-                  
-                  title.appendTo("#results");
-                  author.appendTo("#results");
-                  description.appendTo("#results");
-                  img.appendTo("#results");
-                  purchase.appendTo("#results");
+                  const row = $("<tr>");
+
+                  const imgCell = $("<td>").html(`<img class="imgNail" id="thumbnail" src="${data.items[i].volumeInfo.imageLinks.thumbnail}">`);
+                  const titleCell = $("<td>").text(data.items[i].volumeInfo.title);
+                  const authorCell = $("<td>").text(data.items[i].volumeInfo.authors);
+                  const descCell = $("<td>").text(data.items[i].volumeInfo.description);
+                  const purchaseCell = $("<td>").text(data.items[i].saleInfo.buyLink);
+          
+                  imgCell.appendTo(row);
+                  titleCell.appendTo(row);
+                  authorCell.appendTo(row);
+                  descCell.appendTo(row);
+                  purchaseCell.appendTo(row);
+          
+
+                  row.appendTo(tableBody);
 
                 }
                 console.log(data);
@@ -49,17 +55,23 @@ $(document).ready(function() {
               .then(response => response.json())
               .then(data => {
                 for(i=0;i<data.items.length;i++){
-                  title=$('<h1 class="tile">'+data.items[i].volumeInfo.title+ '</h1>');
-                  author=$('<h2 class="author">'+data.items[i].volumeInfo.authors+ '</h2>');
-                  description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
-                  img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
-                  purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
-                  
-                  title.appendTo("#results");
-                  author.appendTo("#results");
-                  description.appendTo("#results");
-                  img.appendTo("#results");
-                  purchase.appendTo("#results");
+                  const row = $("<tr>");
+
+                  const imgCell = $("<td>").html(`<img class="imgNail" id="thumbnail" src="${data.items[i].volumeInfo.imageLinks.thumbnail}">`);
+                  const titleCell = $("<td>").text(data.items[i].volumeInfo.title);
+                  const authorCell = $("<td>").text(data.items[i].volumeInfo.authors);
+                  const descCell = $("<td>").text(data.items[i].volumeInfo.description);
+                  const purchaseCell = $("<td>").text(data.items[i].saleInfo.buyLink);
+          
+                  imgCell.appendTo(row);
+                  titleCell.appendTo(row);
+                  authorCell.appendTo(row);
+                  descCell.appendTo(row);
+                  purchaseCell.appendTo(row);
+          
+
+                  row.appendTo(tableBody);
+
                 }
                 console.log(data);
               })
@@ -75,17 +87,23 @@ $(document).ready(function() {
             .then(response => response.json())
             .then(data => {
               for(i=0;i<data.items.length;i++){
-                title=$('<h1 class="tile">'+data.items[i].volumeInfo.title+ '</h1>');
-                author=$('<h2 class="author">'+data.items[i].volumeInfo.authors+ '</h2>');
-                description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
-                img=$('<img class="imgNail" id="thumbnail" src="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><br><a href="'+data.items[i].volumeInfo.imageLinks.thumbnail+'"><button id="selectButton" class="select">select</button> </a>');
-                purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
-                
-                title.appendTo("#results");
-                author.appendTo("#results");
-                description.appendTo("#results");
-                img.appendTo("#results");
-                purchase.appendTo("#results");
+                const row = $("<tr>");
+
+                const imgCell = $("<td>").html(`<img class="imgNail" id="thumbnail" src="${data.items[i].volumeInfo.imageLinks.thumbnail}">`);
+                const titleCell = $("<td>").text(data.items[i].volumeInfo.title);
+                const authorCell = $("<td>").text(data.items[i].volumeInfo.authors);
+                const descCell = $("<td>").text(data.items[i].volumeInfo.description);
+                const purchaseCell = $("<td>").text(data.items[i].saleInfo.buyLink);
+        
+                imgCell.appendTo(row);
+                titleCell.appendTo(row);
+                authorCell.appendTo(row);
+                descCell.appendTo(row);
+                purchaseCell.appendTo(row);
+        
+
+                row.appendTo(tableBody);
+
               }
               console.log(data);
             })
@@ -112,16 +130,22 @@ $(document).ready(function() {
     .then(response => response.json())
     .then(data => {
       for(i=0;i<data.items.length;i++){
-        title=$('<h5 class="tile">'+data.items[i].volumeInfo.title+ '</h5>');
-        author=$('<h5 class="author">'+data.items[i].volumeInfo.authors+ '</h5>');
-        description=$('<p class="desc">'+data.items[i].volumeInfo.description+ '</p>');
-        img=$('<img class="imgNail" id="thumbnail"><br>+<a href='+data.items[i].volumeInfo.imageLinks.thumbnail+ '+ <button id="selectButton" class="select">select</button> </a>');
-        purchase=$('<p class="img">'+data.items[i].saleInfo.buyLink+ '</p>');
-        title.appendTo("#results");
-        author.appendTo("#results");
-        description.appendTo("#results");
-        img.appendTo("#results");
-        purchase.appendTo("#results");
+        const row = $("<tr>");
+
+        const imgCell = $("<td>").html(`<img class="imgNail" id="thumbnail" src="${data.items[i].volumeInfo.imageLinks.thumbnail}">`);
+        const titleCell = $("<td>").text(data.items[i].volumeInfo.title);
+        const authorCell = $("<td>").text(data.items[i].volumeInfo.authors);
+        const descCell = $("<td>").text(data.items[i].volumeInfo.description);
+        const purchaseCell = $("<td>").text(data.items[i].saleInfo.buyLink);
+
+        imgCell.appendTo(row);
+        titleCell.appendTo(row);
+        authorCell.appendTo(row);
+        descCell.appendTo(row);
+        purchaseCell.appendTo(row);
+
+        row.appendTo(tableBody);
+
       }
       console.log(data);
     })
