@@ -33,12 +33,11 @@ $(document).ready(function() {
                   authorCell.appendTo(row);
                   descCell.appendTo(row);
                   purchaseCell.appendTo(row);
-          
+                  $('#resultsBody').append(row);
 
-                  row.appendTo(tableBody);
+                  row.appendTo("#tableBody");
 
                 }
-                //window.location.href = 'resultPr.html';
                 console.log(data);
               })
               .catch(error => {
@@ -69,12 +68,13 @@ $(document).ready(function() {
                   authorCell.appendTo(row);
                   descCell.appendTo(row);
                   purchaseCell.appendTo(row);
-          
+                  $('#resultsBody').append(row);
 
-                  row.appendTo(tableBody);
+                  //not being used
+                 // row.appendTo("#tableBody");
 
                 }
-               // window.location.href = 'resultPr.html';
+               // window.location.href = "resultPr.html";
                 console.log(data);
               })
               .catch(error => {
@@ -102,14 +102,13 @@ $(document).ready(function() {
                 authorCell.appendTo(row);
                 descCell.appendTo(row);
                 purchaseCell.appendTo(row);
-        
+                $('#resultsBody').append(row);
 
-                row.appendTo(tableBody);
+
+                row.appendTo("#tableBody");
 
               }
-              //window.location.href = 'resultPr.html';
               console.log(data);
-
             })
             .catch(error => {
               alert('Error: Could not retrieve book information.');
@@ -123,7 +122,6 @@ $(document).ready(function() {
       }
     }
     return false;
-    
   });
 });
 
@@ -148,13 +146,13 @@ $(document).ready(function() {
         authorCell.appendTo(row);
         descCell.appendTo(row);
         purchaseCell.appendTo(row);
+        $('#resultsBody').append(row);
 
-        row.appendTo(tableBody);
+
+        row.appendTo("#tableBody");
 
       }
-      //window.location.href = 'resultPr.html';
       console.log(data);
-
     })
 
   });
