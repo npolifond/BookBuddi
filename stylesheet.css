@@ -249,5 +249,17 @@ footer {
   .desccell {
     width: 60%;
   }
+th{
+  font-family: captions;
+  
+}
 
+#resTab{
+  font-family: text;
+  color: rgba(60, 136, 126, 1);
+}
 
+#results{
+  background-color: rgba(60, 136, 126, 0.048) ;
+
+}
