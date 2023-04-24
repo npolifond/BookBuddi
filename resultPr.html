@@ -3,7 +3,7 @@
     <head>
         <link  rel="stylesheet" href="stylesheet.css"  type="text/css" /> 
         <title>
-            results
+            Results 
         </title>
     </head>
     <body>
@@ -17,16 +17,16 @@
         <div class="logo">
             <img src="images/bblogo%E2%80%8E.jpg" alt="Book Buddi Logo" width="100" id="logoimg"> 
         </div>
-        <h1>Catalog</h1> 
+        <h1>Results</h1> 
         <nav class="navbar"> 
             <ul>
                <li><a href="index.html" onclick="index.html" id="Home"> Home</a></li> 
                <li> <a href="catalog.html" onclick="catalog.html" id="catalog"> Catalog</a></li>
-               <li> <a href="catalog.html" onclick="catalog.html" id="catalog"> Account</a></li>
+               <li> <a href="loginpage.html" onclick="catalog.html" id="signup"> Account</a></li>
             </ul> 
         </nav>
         </header>
-<p style="font-size: smaller; font-family: text;"></p>
+
 
         <main>
             <section class="searchBar">
@@ -44,11 +44,36 @@
                 </form>
             </div>
             </section>
-            
-<div id="results"></div>
 
-            
+                    
+
+        <section>
+            <table id="results">
+                <thead>
+                    <tr>
+                      <th id="resTab">Image</th>
+                      <th id="resTab">Title</th>
+                      <th id="resTab">Author</th>
+                      <th id="resTab">Description</th>
+                      <th id="resTab">Purchase</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody">
+                  </tbody>
+                  <br>
+
+            </table>
+      </section>
+
+        </main>
     </body>
+    <br>
+    <footer>
+        <p><a href="credits.html" onclick="credits.html">Credits</a></p>
+        <br>
+        <br>
+    </footer>
+
            
    
 </html>

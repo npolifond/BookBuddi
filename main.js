@@ -38,6 +38,7 @@ $(document).ready(function() {
                   row.appendTo(tableBody);
 
                 }
+                //window.location.href = 'resultPr.html';
                 console.log(data);
               })
               .catch(error => {
@@ -73,6 +74,7 @@ $(document).ready(function() {
                   row.appendTo(tableBody);
 
                 }
+               // window.location.href = 'resultPr.html';
                 console.log(data);
               })
               .catch(error => {
@@ -105,7 +107,9 @@ $(document).ready(function() {
                 row.appendTo(tableBody);
 
               }
+              //window.location.href = 'resultPr.html';
               console.log(data);
+
             })
             .catch(error => {
               alert('Error: Could not retrieve book information.');
@@ -119,6 +123,7 @@ $(document).ready(function() {
       }
     }
     return false;
+    
   });
 });
 
@@ -147,7 +152,9 @@ $(document).ready(function() {
         row.appendTo(tableBody);
 
       }
+      //window.location.href = 'resultPr.html';
       console.log(data);
+
     })
 
   });
