@@ -69,7 +69,7 @@ def reviewsByTitle(title):
         return resp
 
 
-@app.route('/user/account',methods = ['GET'])
+@app.route('/users/account',methods = ['GET'])
 def reviewsbyUser(id):
     try:
         conn=mysql.connect();
@@ -156,7 +156,7 @@ def SubmitReview(id):
 
 
 #Delete users reviews
-@app.route('/user/delete/<string:title>/<int:id>')
+@app.route('/users/delete/<string:title>/<int:id>')
 def removeReview(BookTitle,id):
     try:
         #MySQL connection
@@ -200,7 +200,7 @@ def removeReview(BookTitle,id):
 
 
 #update User Reviews
-@app.route('/user/update',  methods=['POST'])
+@app.route('/users/update',  methods=['POST'])
 def updateReview(BookTitle,id):
     try:
         id = request.form['userId']

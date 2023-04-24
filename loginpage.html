@@ -9,28 +9,46 @@
             background-color: #FAF9F6;
         }
 
-        h1 {
-            color: #313639;
-            text-align: center;
-
+        #titlename{
+            background-color:rgba(60, 136, 126, 1);
         }
- 
         h2 {
             text-align: center;
+            font-family: captions;
+            color: aliceblue;
         }
-
-        form {
-            text-align: center;
-        }
-
-        footer {
-            background-color: gray;
-            text-align: center;
-            position: fixed;
+        input{
             width: 100%;
-            left: 0;
-            bottom: 0;
+            height:30px;
+
         }
+        input[type=submit]{
+            background-color: #FAF9F6;
+            border-radius: 5px;
+            width: 20%;
+        }
+        #signUpimge{
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(images/pexels-cottonbro-studio-6334064.jpg);
+        
+        }
+
+        #signUpForm {
+         
+            height: 400px;
+            width: 400px;
+
+
+        }
+        label{
+            line-height: 32px;
+            
+        }
+
+
+
         submit {
             padding: 5px 15px;
             background: #ccc;
@@ -61,7 +79,7 @@
                 areFieldsCorrect = false;
                 message += "Email is empty \n";
             }
-
+        
 
 
 
@@ -165,8 +183,15 @@
 
 
 </header>
-    
-    <form method = "POST" action ="#'>
+
+        <div id="titlename">
+            <br>
+            <h2>Create an Account</h2>
+            <br>
+           
+        </div>
+    <div id="signUpimge">
+        <form method = "POST" action ="#" id="signUpForm">
         <label for="fname">Firstname:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Lastname:</label><br>
@@ -177,14 +202,16 @@
         <input type="text" id="uname" name="uname"><br>
         <label for="pass">Password:</label><br>
         <input type="text" id="pass" name="pass"><br><br>
-        <input type="submit" value="Sign up" onclick="validate()">
+        <input type="submit" value="Sign up"  onclick="validate()">
     </form>
+</div>
 
-    <p></p>
+  <br>
     <footer>
+        <br>
         <p><a href="credits.html" onclick="credits.html">Credits</a></p>
         <br>
-        <br>
+       
     </footer>
 
 </body>

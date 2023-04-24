@@ -61,6 +61,10 @@ header {
     height: 60px;
     padding: 10px;
   }
+
+  footer{
+    position: absolute;
+  }
   
   nav ul {
     list-style: none;
@@ -139,14 +143,13 @@ form{
 h2{
   font-family: captions;
 }
-#optnNon{
-  background:url(images/nonfic.jpg) ; 
-}
+
 
 .Booktypes{
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .searchBar{
     background-image: url(images/pexels-yaroslav-shuraev-6281049.jpg);
@@ -164,7 +167,20 @@ h2{
 .benefits{
   margin-top: 60px;
 }
+input [type=radio]{
+  font-family: captions;
+  
 
+}
+
+footer {
+  background-color: gray;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
 
   #optNon {
     display: flex;
@@ -173,16 +189,63 @@ h2{
     align-items: center;
     text-align: center;
   }
-  #optNon img {
-    width: 200px;
-    height: 200px;
+  #optRom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }  
+  #optSci {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
+  #optSelf {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #optHis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }  
+  #optAdv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #optBio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #optThrill {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }  
+  #optFic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  
 
-
-<td>
-  <button name="searchBtn" id="optNon">
-    <img src="C:\Users\Jadou1\Documents\GitHub\BookBuddi\images\nonfic.jpg">
-    <span>Nonfiction</span>
-  </button>
-</td>
 
