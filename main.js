@@ -35,7 +35,7 @@ $(document).ready(function() {
                   purchaseCell.appendTo(row);
                   $('#resultsBody').append(row);
 
-                  row.appendTo("#tableBody");
+                  row.appendTo(tableBody);
 
                 }
                 console.log(data);
@@ -72,6 +72,8 @@ $(document).ready(function() {
 
                   //not being used
                  // row.appendTo("#tableBody");
+                 row.appendTo(tableBody);
+
 
                 }
                // window.location.href = "resultPr.html";
@@ -105,7 +107,7 @@ $(document).ready(function() {
                 $('#resultsBody').append(row);
 
 
-                row.appendTo("#tableBody");
+                  row.appendTo(tableBody);
 
               }
               console.log(data);
@@ -152,6 +154,7 @@ $(document).ready(function() {
         row.appendTo("#tableBody");
 
       }
+      //window.location.href = "resultPr.html";
       console.log(data);
     })
 

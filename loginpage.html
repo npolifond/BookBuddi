@@ -108,14 +108,14 @@
             var firstname = document.getElementById('fname').value;
             var lastname = document.getElementById('lname').value;
             var username = document.getElementById('uname').value;
-            var passworrd = document.getElementById('pass').value;
+            var password = document.getElementById('pass').value;
             var email = document.getElementById('mail').value;
 
             // run all information through validators
             validateName(firstname);
             validateName(lastname);
             validateuser(username);
-            validatepass(passworrd);
+            validatepass(password);
             validatemail(email);
 
             if (!areFieldsCorrect) {
@@ -126,7 +126,7 @@
             else {
                 alert("Account Created!");
                 // sends  user info to database 
-                var formData ="&firstname=" + firstname + "&lastname=" + lastname + "&email=" + email + "username=" + username + "&password=" + password;
+                var formData = "&firstname=" + firstname + "&lastname=" + lastname + "&email=" + email + "&username=" + username + "&password=" + password;
                 console.log(formData);
                 $.ajax
                     ({

@@ -37,8 +37,8 @@ def getBooks():
 @app.route('/catalog/results/<string:title>', methods=['GET'])
 def reviewsByTitle(title):
     try:
-        conn=mysql.connect();
-        curr = conn.cur(pymysql.cursors.DictCursors)
+        conn=mysql.connect()
+        cur = conn.cur(pymysql.cursors.DictCursors)
 
         cur.execute("SELECT * FROM review_details WHERE BookTitle = %s;",title)
         rows = cur.fetchall()
@@ -68,14 +68,14 @@ def reviewsByTitle(title):
         resp.status_code = 500
         return resp
 
-
-@app.route('/users/account',methods = ['GET'])
-def reviewsbyUser(id):
+#
+@app.route('/users/account/<int:user_id>')
+def reviewsbyUser(user_id):
     try:
-        conn=mysql.connect();
-        curr=conn.cur(pymysql.cursors.DictCursors)
+        conn = mysql.connect()
+        cur = conn.cursor(pymysql.cursors.DictCursor)
 
-        cur.execute("SELECT * FROM review_details WHERE user_id = %s;",id)
+        cur.execute("SELECT * FROM review_details WHERE user_id = %s;",user_id)
         rows = cur.fetchall()
         if len(rows) > 0:
             resp = jsonify(rows)
@@ -111,7 +111,7 @@ def reviewsbyUser(id):
 def SubmitReview(id):
     try:
         if 'id' not in session:
-            return redirect(url_for('login page.html'))
+            return redirect(url_for('loginpage.html'))
 
         BookTitle=request.form['title']
         Description=request.form['description']
@@ -156,14 +156,14 @@ def SubmitReview(id):
 
 
 #Delete users reviews
-@app.route('/users/delete/<string:title>/<int:id>')
-def removeReview(BookTitle,id):
+@app.route('/users/delete/<string:title>/<int:user_id>')
+def removeReview(BookTitle,user_id):
     try:
         #MySQL connection
         conn = mysql.connect()
         cur = conn.cursor(pymysql.cursors.DictCursor) #The function is actually cursor(), not cur()
         
-        cur.execute("SELECT * FROM review_details WHERE user_id = %s;",id)
+        cur.execute("SELECT * FROM review_details WHERE user_id = %s;",user_id)
         rows = cur.fetchall()
 
         if len(rows) > 0:
@@ -201,7 +201,7 @@ def removeReview(BookTitle,id):
 
 #update User Reviews
 @app.route('/users/update',  methods=['POST'])
-def updateReview(BookTitle,id):
+def updateReview(BookTitle,user_id):
     try:
         id = request.form['userId']
         BookTitle = request.form['booktitle']
@@ -212,10 +212,10 @@ def updateReview(BookTitle,id):
         conn = mysql.connect()
         cur = conn.cursor(pymysql.cursors.DictCursor)
 
-        if BookTitle and Desciption and Rating and id:
+        if BookTitle and Desciption and Rating and user_id:
             
             sql = "UPDATE review_details SET Desciption,Rating WHERE BookTitle = %s;"
-            data = (BookTitle, Desciption, Rating, id)
+            data = (BookTitle, Desciption, Rating, user_id)
 
             cur.execute(sql, data)
             conn.commit()
@@ -293,14 +293,14 @@ def user():
         return resp
 
 
-@app.route('/users/<int:username>')
+@app.route('/users/<int:id>')
 def view_user(id):
     try:
         #MySQL connection
         conn = mysql.connect()
         cur = conn.cursor(pymysql.cursors.DictCursor)
         
-        cur.execute("SELECT * FROM account WHERE username = %s;",username)
+        cur.execute("SELECT * FROM account WHERE id = %s;",id)
         rows = cur.fetchall()
         print("Records returned: "+str(len(rows)))
 
@@ -347,8 +347,8 @@ def add_user():
 
         if firstname and lastname and email and username and  password:
 
-            sql = "INSERT INTO account (firstname, lastname, username ,email, password) VALUES(%s, %s, %s, %s, %s)"
-            data = (firstname, lastname, username, email,password)
+            sql = "INSERT INTO account (firstname, lastname, username, email, password) VALUES (%s, %s, %s, %s, %s)"
+            data = (firstname, lastname, username, email, password)
 
             cur.execute(sql, data)
             conn.commit()
