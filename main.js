@@ -33,7 +33,7 @@ $(document).ready(function() {
                   authorCell.appendTo(row);
                   descCell.appendTo(row);
                   purchaseCell.appendTo(row);
-                  $('#resultsBody').append(row);
+                  //$('#resultsBody').append(row);
 
                   row.appendTo(tableBody);
 
@@ -87,7 +87,8 @@ $(document).ready(function() {
 
         case 'author':
           if (searchTerm!=='') {
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor${searchTerm}`)
+            const encodedSearchTerm = encodeURIComponent(searchTerm);
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor${encodedSearchTerm}`)
             .then(response => response.json())
             .then(data => {
               for(i=0;i<data.items.length;i++){
