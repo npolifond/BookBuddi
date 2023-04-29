@@ -9,7 +9,7 @@ Home page, catalog page, API functions, JS search functions and CSS contributed 
 Signup page and API functions contributed by David Okerinde
 
 
-Credits page and CSS catalog buttons contributed by Jean-Charles Adou
+Credits page, results page and CSS catalog buttons contributed by Jean-Charles Adou
 
 
 
