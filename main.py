@@ -50,7 +50,7 @@ def reviewsByTitle(title):
         else:
             message = {
                 'status': 414,
-                'message': 'The user with the ID specified does NOT exist'
+                'message': 'Title has no reviews'
             }
             resp = jsonify(message)
             resp.status_code = 414
